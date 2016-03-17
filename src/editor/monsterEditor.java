@@ -1,7 +1,4 @@
 package editor;
-/**
- * Created by Ninh Do on 17/03/2016.
- */
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

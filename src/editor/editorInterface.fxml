@@ -1,5 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.SplitPane?>
-<SplitPane>
 
-</SplitPane>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/8.0.40"
+			xmlns:fx="http://javafx.com/fxml/1" fx:controller="editor.controller">
+	<SplitPane dividerPositions="0.5, 0.5, 0.5, 0.5, 0.5, 0.5" orientation="VERTICAL" prefWidth="610.0">
+		<padding>
+			<Insets bottom="5.0" left="5.0" right="5.0" top="10.0"/>
+		</padding>
+		<GridPane fx:id="basicInfo" hgap="5.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+				  prefHeight="90.0" prefWidth="600.0" vgap="5.0">
+			<rowConstraints>
+				<RowConstraints minHeight="40.0" prefHeight="50.0"/>
+				<RowConstraints minHeight="30.0" prefHeight="40.0"/>
+			</rowConstraints>
+			<columnConstraints>
+				<ColumnConstraints minWidth="100.0" percentWidth="100.0" prefWidth="300.0"/>
+				<ColumnConstraints minWidth="100.0" percentWidth="100.0" prefWidth="300.0"/>
+				<ColumnConstraints minWidth="100.0" percentWidth="100.0" prefWidth="300.0"/>
+				<ColumnConstraints minWidth="150.0" percentWidth="100.0" prefWidth="300.0"/>
+			</columnConstraints>
+			<opaqueInsets>
+				<Insets/>
+			</opaqueInsets>
+			<TextField fx:id="monsterName" promptText="Monster Name" GridPane.columnSpan="2147483647">
+				<font>
+					<Font name="Lucida Bright Demibold" size="24.0"/>
+				</font>
+				<GridPane.margin>
+					<Insets/>
+				</GridPane.margin>
+			</TextField>
+			<ComboBox fx:id="size" prefWidth="150.0" promptText="Size" GridPane.rowIndex="1"/>
+			<ComboBox fx:id="alignment" prefWidth="150.0" promptText="Alignment" GridPane.columnIndex="3"
+					  GridPane.rowIndex="1"/>
+			<ComboBox fx:id="type" prefWidth="150.0" promptText="Type" GridPane.columnIndex="1"
+					  GridPane.rowIndex="1"/>
+			<TextField fx:id="subtype" promptText="Subtype" GridPane.columnIndex="2" GridPane.rowIndex="1">
+				<font>
+					<Font name="Lucida Bright Regular" size="13.0"/>
+				</font>
+			</TextField>
+		</GridPane>
+		<GridPane fx:id="combatInfo" maxHeight="-Infinity" maxWidth="600.0" minHeight="-Infinity"
+				  minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="98.0"/>
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="509.0" minWidth="10.0" prefWidth="502.0"/>
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+			</rowConstraints>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Armor Class">
+				<font>
+					<Font name="System Bold" size="13.0"/>
+				</font>
+			</Text>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hit Points" GridPane.rowIndex="1">
+				<font>
+					<Font name="System Bold" size="13.0"/>
+				</font>
+			</Text>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Speed" GridPane.rowIndex="2">
+				<font>
+					<Font name="System Bold" size="13.0"/>
+				</font>
+			</Text>
+			<TextField fx:id="ac" promptText="15 (natural armor)" GridPane.columnIndex="1"/>
+			<TextField fx:id="hp" promptText="33 (6d8+6)" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+			<TextField fx:id="speed" promptText="25 ft." GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+		</GridPane>
+		<GridPane fx:id="abilities" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+				  minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="600.0">
+			<columnConstraints>
+				<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+				<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+				<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+				<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+				<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+				<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+			</rowConstraints>
+			<padding>
+				<Insets bottom="10.0" top="10.0"/>
+			</padding>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="STR" textAlignment="CENTER"/>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="DEX" GridPane.columnIndex="1"/>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="CON" GridPane.columnIndex="2"/>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="INT" GridPane.columnIndex="3"/>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="WIS" GridPane.columnIndex="4"/>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="CHA" GridPane.columnIndex="5"/>
+			<Text fx:id="strengthMod" strokeType="OUTSIDE" strokeWidth="0.0" text="(+0)"
+				  GridPane.rowIndex="2"/>
+			<Text fx:id="dexterityMod" strokeType="OUTSIDE" strokeWidth="0.0" text="(+0)"
+				  GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+			<Text fx:id="constitutionMod" strokeType="OUTSIDE" strokeWidth="0.0" text="(+0)"
+				  GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+			<Text fx:id="intelligenceMod" strokeType="OUTSIDE" strokeWidth="0.0" text="(+0)"
+				  GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+			<Text fx:id="wisdomMod" strokeType="OUTSIDE" strokeWidth="0.0" text="(+0)"
+				  GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+			<Text fx:id="charismaMod" strokeType="OUTSIDE" strokeWidth="0.0" text="(+0)"
+				  GridPane.columnIndex="5" GridPane.rowIndex="2"/>
+			<TextField fx:id="strength" alignment="CENTER" promptText="10" GridPane.rowIndex="1"/>
+			<TextField fx:id="dexterity" alignment="CENTER" promptText="10" GridPane.columnIndex="1"
+					   GridPane.rowIndex="1"/>
+			<TextField fx:id="constitution" alignment="CENTER" promptText="10" GridPane.columnIndex="2"
+					   GridPane.rowIndex="1"/>
+			<TextField fx:id="intelligence" alignment="CENTER" promptText="10" GridPane.columnIndex="3"
+					   GridPane.rowIndex="1"/>
+			<TextField fx:id="wisdom" alignment="CENTER" promptText="10" GridPane.columnIndex="4"
+					   GridPane.rowIndex="1"/>
+			<TextField fx:id="charisma" alignment="CENTER" promptText="10" GridPane.columnIndex="5"
+					   GridPane.rowIndex="1"/>
+		</GridPane>
+		<GridPane fx:id="otherInfo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+				  minWidth="-Infinity" prefHeight="220.0" prefWidth="600.0">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="165.0"/>
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="436.0" minWidth="10.0" prefWidth="435.0"/>
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+			</rowConstraints>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Saving Throws">
+				<font>
+					<Font name="System Bold" size="13.0"/>
+				</font>
+			</Text>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Skills" GridPane.rowIndex="1">
+				<font>
+					<Font name="System Bold" size="13.0"/>
+				</font>
+			</Text>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Damage Resistances" GridPane.rowIndex="2">
+				<font>
+					<Font name="System Bold" size="13.0"/>
+				</font>
+			</Text>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Damage Immunities" GridPane.rowIndex="3">
+				<font>
+					<Font name="System Bold" size="13.0"/>
+				</font>
+			</Text>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Condition Immunities" GridPane.rowIndex="4">
+				<font>
+					<Font name="System Bold" size="13.0"/>
+				</font>
+			</Text>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Senses" GridPane.rowIndex="5">
+				<font>
+					<Font name="System Bold" size="13.0"/>
+				</font>
+			</Text>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Languages" GridPane.rowIndex="6">
+				<font>
+					<Font name="System Bold" size="13.0"/>
+				</font>
+			</Text>
+			<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Challenge" GridPane.rowIndex="7">
+				<font>
+					<Font name="System Bold" size="13.0"/>
+				</font>
+			</Text>
+			<TextField promptText="Str +5, Dex +10, Con -5" GridPane.columnIndex="1"/>
+			<TextField promptText="Perception +4, History -1, Athletics +1" GridPane.columnIndex="1"
+					   GridPane.rowIndex="1"/>
+			<TextField promptText="Acid, Fire, Thunder, etc" GridPane.columnIndex="1"
+					   GridPane.rowIndex="2"/>
+			<TextField promptText="Acid, Cold, Poison, etc" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+			<TextField promptText="blinded, charmed, deafened, etc" GridPane.columnIndex="1"
+					   GridPane.rowIndex="4"/>
+			<TextField promptText="blindsight 30 ft., tremorsese 120 ft., passive perception 10, etc"
+					   GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+			<TextField promptText="common, elvish, giant, etc" GridPane.columnIndex="1"
+					   GridPane.rowIndex="6"/>
+			<TextField promptText="21" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+		</GridPane>
+		<VBox fx:id="traits" prefHeight="300.0" prefWidth="600.0">
+			<Group>
+				<TextField fx:id="traitName" prefWidth="600.0" promptText="Trait Name">
+					<font>
+						<Font name="System Bold" size="12.0"/>
+					</font>
+				</TextField>
+				<TextArea fx:id="traitDesc" layoutY="25.0" prefHeight="100.0" prefWidth="600.0"
+						  promptText="Trait description"/>
+				<Button fx:id="addTraitBtn" layoutY="125.0" mnemonicParsing="false" onAction="#addTrait"
+						text="Add trait"/>
+			</Group>
+		</VBox>
+		<VBox fx:id="multiattack" prefHeight="200.0" prefWidth="100.0">
+			<CheckBox fx:id="multiattackBox" mnemonicParsing="false" text="Multiattack"/>
+			<TextArea fx:id="multiattackDescription" prefHeight="200.0" prefWidth="200.0"
+					  promptText="Multiattack description."/>
+		</VBox>
+		<VBox fx:id="actions" prefHeight="200.0" prefWidth="600.0">
+			<TextField fx:id="actionName" promptText="Action name"/>
+			<TextArea fx:id="actionDesc" prefHeight="100.0" prefWidth="600.0"
+					  promptText="Action description."/>
+		</VBox>
+	</SplitPane>
+</ScrollPane>
