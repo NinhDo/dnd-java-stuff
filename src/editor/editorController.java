@@ -6,7 +6,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.event.ActionEvent;
 
-public class controller {
+public class editorController {
 	public GridPane basicInfo;
 	public TextField monsterName;
 	public ComboBox size;
