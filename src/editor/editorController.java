@@ -1,21 +1,22 @@
 package editor;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.event.ActionEvent;
 
 public class editorController {
 	public GridPane basicInfo;
 	public TextField monsterName;
 	public ComboBox size;
-	public ComboBox alignment;
-	public ComboBox type;
-	public TextField subtype;
+	public TextField alignment;
+	public TextField type;
 	public GridPane combatInfo;
 	public TextField ac;
+	public TextField acDesc;
 	public TextField hp;
+	public TextField hpDesc;
 	public TextField speed;
 	public GridPane abilities;
 	public Text strengthMod;
@@ -41,6 +42,10 @@ public class editorController {
 	public VBox actions;
 	public TextField actionName;
 	public TextArea actionDesc;
+	public VBox actionsParent;
+	public VBox traitsParent;
+	public VBox actionList;
+	public VBox attackAction;
 
 	public void addTrait(ActionEvent ae) {
 		System.out.println("add trait");

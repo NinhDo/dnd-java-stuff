@@ -1,281 +1,266 @@
+/**
+ * Copyright (c) 2016 Ninh Do (https://github.com/NinhDo)
+ * Source code found at https://github.com/NinhDo/dnd-java-stuff
+ * Object structure is based on mlenser's (https://github.com/mlenser) roll20 dnd 5e shaped scripts
+ * importer. Structure here: https://github.com/mlenser/roll20/blob/master/scripts/dist/5e-monsters.js
+ */
 package monsterObject;
 
-import java.util.ArrayList;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-/**
- * Created by Guest on 20.03.2016.
- */
+import java.util.List;
 
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({"name", "size", "type", "alignment", "AC", "HP", "speed", "abilities", "savingThrows", "skills", "damageResistances", "damageImmunities", "conditionImmunities", "senses", "languages", "challenge", "traits", "actions", "lairActions", "regionalEffects", "regionalEffectsFade", "legendaryPoints", "legendaryActions"})
 public class monsterObject {
 
-	private String name;
-	private String size;
-	private String type;
-	private String alignment;
-	private int ac;
-	private String acDesc;
-	private int hp;
-	private String hpDesc;
-	private String speed;
-	private String abilities;
-	private String savingThrows;
-	private String skills;
-	private String damageResistances;
-	private String damageImmunities;
-	private String conditionImmunities;
-	private String senses;
-	private String languages;
-	private int challenge;
-	private ArrayList<String> traits;
-	private ArrayList<String> actions;
-	private ArrayList<String> lairActions;
-	private ArrayList<String> regionalEffects;
-	private ArrayList<String> regionalEffectsFade;
-	private int legendaryPoints;
-	private ArrayList<String> legendaryActions;
+	private String name, size, type, alignment, AC, HP, speed, abilities, savingThrows, skills, damageResistances, damageVulnerabilities, damageImmunities, conditionImmunities, senses, languages, challenge, regionalEffectsFade, legendaryPoints;
+	private List<String> traits, actions, lairActions, regionalEffects, legendaryActions;
 
+	// Constructor
+	public monsterObject() {
+	}
+
+	// GETTERS AND SETTERS
+	@JsonProperty("name")
 	public String getName() {
 		return name;
 	}
 
+	@JsonProperty("name")
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	@JsonProperty("size")
 	public String getSize() {
 		return size;
 	}
 
+	@JsonProperty("size")
 	public void setSize(String size) {
 		this.size = size;
 	}
 
+	@JsonProperty("type")
 	public String getType() {
 		return type;
 	}
 
+	@JsonProperty("type")
 	public void setType(String type) {
 		this.type = type;
 	}
 
+	@JsonProperty("alignment")
 	public String getAlignment() {
 		return alignment;
 	}
 
+	@JsonProperty("alignment")
 	public void setAlignment(String alignment) {
 		this.alignment = alignment;
 	}
 
-	public int getAc() {
-		return ac;
+	@JsonProperty("AC")
+	public String getAC() {
+		return AC;
 	}
 
-	public void setAc(int ac) {
-		this.ac = ac;
+	@JsonProperty("AC")
+	public void setAC(String ac) {
+		this.AC = ac;
 	}
 
-	public String getAcDesc() {
-		return acDesc;
+	@JsonProperty("HP")
+	public String getHP() {
+		return HP;
 	}
 
-	public void setAcDesc(String acDesc) {
-		this.acDesc = acDesc;
+	@JsonProperty("HP")
+	public void setHP(String hp) {
+		this.HP = hp;
 	}
 
-	public int getHp() {
-		return hp;
-	}
-
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
-
-	public String getHpDesc() {
-		return hpDesc;
-	}
-
-	public void setHpDesc(String hpDesc) {
-		this.hpDesc = hpDesc;
-	}
-
+	@JsonProperty("speed")
 	public String getSpeed() {
 		return speed;
 	}
 
+	@JsonProperty("speed")
 	public void setSpeed(String speed) {
 		this.speed = speed;
 	}
 
+	@JsonProperty("abilities")
 	public String getAbilities() {
 		return abilities;
 	}
 
+	@JsonProperty("abilities")
 	public void setAbilities(String abilities) {
 		this.abilities = abilities;
 	}
 
+	@JsonProperty("savingThrows")
 	public String getSavingThrows() {
 		return savingThrows;
 	}
 
+	@JsonProperty("savingThrows")
 	public void setSavingThrows(String savingThrows) {
 		this.savingThrows = savingThrows;
 	}
 
+	@JsonProperty("skills")
 	public String getSkills() {
 		return skills;
 	}
 
+	@JsonProperty("skills")
 	public void setSkills(String skills) {
 		this.skills = skills;
 	}
 
+	@JsonProperty("damageResistances")
 	public String getDamageResistances() {
 		return damageResistances;
 	}
 
+	@JsonProperty("damageResistances")
 	public void setDamageResistances(String damageResistances) {
 		this.damageResistances = damageResistances;
 	}
 
+	@JsonProperty("damageVulnerabilities")
+	public String getDamageVulnerabilities() {
+		return damageVulnerabilities;
+	}
+
+	@JsonProperty("damageVulnerabilities")
+	public void setDamageVulnerabilities(String damageVulnerabilities) {
+		this.damageVulnerabilities = damageVulnerabilities;
+	}
+
+	@JsonProperty("damageImmunities")
 	public String getDamageImmunities() {
 		return damageImmunities;
 	}
 
+	@JsonProperty("damageImmunities")
 	public void setDamageImmunities(String damageImmunities) {
 		this.damageImmunities = damageImmunities;
 	}
 
+	@JsonProperty("conditionImmunities")
 	public String getConditionImmunities() {
 		return conditionImmunities;
 	}
 
+	@JsonProperty("conditionImmunities")
 	public void setConditionImmunities(String conditionImmunities) {
 		this.conditionImmunities = conditionImmunities;
 	}
 
+	@JsonProperty("senses")
 	public String getSenses() {
 		return senses;
 	}
 
+	@JsonProperty("senses")
 	public void setSenses(String senses) {
 		this.senses = senses;
 	}
 
+	@JsonProperty("languages")
 	public String getLanguages() {
 		return languages;
 	}
 
+	@JsonProperty("languages")
 	public void setLanguages(String languages) {
 		this.languages = languages;
 	}
 
-	public int getChallenge() {
+	@JsonProperty("challenge")
+	public String getChallenge() {
 		return challenge;
 	}
 
-	public void setChallenge(int challenge) {
+	@JsonProperty("challenge")
+	public void setChallenge(String challenge) {
 		this.challenge = challenge;
 	}
 
-	public String[] getTraits() {
-		return (String[]) traits.toArray();
+	@JsonProperty("traits")
+	public List<String> getTraits() {
+		return traits;
 	}
 
-	public void setTraits(ArrayList<String> traits) {
+	@JsonProperty("traits")
+	public void setTraits(List<String> traits) {
 		this.traits = traits;
 	}
 
-	public String[] getActions() {
-		return (String[]) actions.toArray();
+	@JsonProperty("actions")
+	public List<String> getActions() {
+		return actions;
 	}
 
-	public void setActions(ArrayList<String> actions) {
+	@JsonProperty("actions")
+	public void setActions(List<String> actions) {
 		this.actions = actions;
 	}
 
-	public String[] getLairActions() {
-		return (String[]) lairActions.toArray();
+	@JsonProperty("lairActions")
+	public List<String> getLairActions() {
+		return lairActions;
 	}
 
-	public void setLairActions(ArrayList<String> lairActions) {
+	@JsonProperty("lairActions")
+	public void setLairActions(List<String> lairActions) {
 		this.lairActions = lairActions;
 	}
 
-	public String[] getRegionalEffects() {
-		return (String[]) regionalEffects.toArray();
+	@JsonProperty("regionalEffects")
+	public List<String> getRegionalEffects() {
+		return regionalEffects;
 	}
 
-	public void setRegionalEffects(ArrayList<String> regionalEffects) {
+	@JsonProperty("regionalEffects")
+	public void setRegionalEffects(List<String> regionalEffects) {
 		this.regionalEffects = regionalEffects;
 	}
 
-	public String[] getRegionalEffectsFade() {
-		return (String[]) regionalEffectsFade.toArray();
+	@JsonProperty("regionalEffectsFade")
+	public String getRegionalEffectsFade() {
+		return regionalEffectsFade;
 	}
 
-	public void setRegionalEffectsFade(ArrayList<String> regionalEffectsFade) {
+	@JsonProperty("regionalEffectsFade")
+	public void setRegionalEffectsFade(String regionalEffectsFade) {
 		this.regionalEffectsFade = regionalEffectsFade;
 	}
 
-	public int getLegendaryPoints() {
+	@JsonProperty("legendaryPoints")
+	public String getLegendaryPoints() {
 		return legendaryPoints;
 	}
 
-	public void setLegendaryPoints(int legendaryPoints) {
+	@JsonProperty("legendaryPoints")
+	public void setLegendaryPoints(String legendaryPoints) {
 		this.legendaryPoints = legendaryPoints;
 	}
 
-	public String[] getLegendaryActions() {
-		return (String[]) legendaryActions.toArray();
+	@JsonProperty("legendaryActions")
+	public List<String> getLegendaryActions() {
+		return legendaryActions;
 	}
 
-	public void setLegendaryActions(ArrayList<String> legendaryActions) {
+	@JsonProperty("legendaryActions")
+	public void setLegendaryActions(List<String> legendaryActions) {
 		this.legendaryActions = legendaryActions;
-	}
-
-	public monsterObject() {
-		this.name = "monster not set";
-		this.size = "size not set";
-		this.type = "type not set";
-		this.alignment = "alignment not set";
-		this.ac = 1;
-		this.hp = 1;
-		this.speed = "speed not set";
-		this.abilities = "STR 0 DEX 0 CON 0 INT 0 WIS 0 CHA 0";
-		this.challenge = 0;
-	}
-
-	public String toString() {
-		String output = "{" +
-				"\nname='" + name + '\'' +
-				",\nsize='" + size + '\'' +
-				",\ntype='" + type + '\'' +
-				",\nalignment='" + alignment + '\'' +
-				",\nac=" + ac +
-				",\nacDesc='" + acDesc + '\'' +
-				",\nhp=" + hp +
-				",\nhpDesc='" + hpDesc + '\'' +
-				",\nspeed='" + speed + '\'' +
-				",\nabilities='" + abilities + '\'' +
-				",\nsavingThrows='" + savingThrows + '\'' +
-				",\nskills='" + skills + '\'' +
-				",\ndamageResistances='" + damageResistances + '\'' +
-				",\ndamageImmunities='" + damageImmunities + '\'' +
-				",\nconditionImmunities='" + conditionImmunities + '\'' +
-				",\nsenses='" + senses + '\'' +
-				",\nlanguages='" + languages + '\'' +
-				",\nchallenge=" + challenge +
-				",\ntraits=" + traits +
-				",\nactions=" + actions +
-				",\nlairActions=" + lairActions +
-				",\nregionalEffects=" + regionalEffects +
-				",\nregionalEffectsFade=" + regionalEffectsFade +
-				",\nlegendaryPoints=" + legendaryPoints +
-				",\nlegendaryActions=" + legendaryActions +
-				'}';
-		return output;
 	}
 }

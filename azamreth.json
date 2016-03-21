@@ -1,0 +1,45 @@
+{
+	"name": "Azamreth",
+	"size": "Huge",
+	"type": "dragon",
+	"alignment": "chaotic fuck you",
+	"AC": "18 (natural armor)",
+	"HP": "172 (15d12+75)",
+	"speed": "40 ft., burrow 40 ft., fly 80 ft.",
+	"abilities": "STR 23 DEX 10 CON 21 INT 14 WIS 13 CHA 17",
+	"savingThrows": "Dex +5, Con +10, Wis +6, Cha +8",
+	"skills": "History +7, Perception +11, Persuasion +8, Stealth +5",
+	"damageImmunities": "fire",
+	"senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 21",
+	"languages": "Common, Draconic",
+	"challenge": "13",
+	"traits": [
+		"Legendary Resistance (3/Day). If Azamreth fails a saving throw, it can choose to succeed instead."
+	],
+	"actions": [
+		"Multiattack. Azamreth can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.",
+		"Bite. Melee Weapon Attack: +11 to hit, reach 0 ft., one target. Hit: 17 (2d10 + 6) piercing damage.",
+		"Claw. Melee Weapon Attack: +11 to hit, reach 5 ft., one target. Hit: 13 (2d6 + 6) slashing damage.",
+		"Tail. Melee Weapon Attack: +11 to hit, reach 15 ft., one target. Hit: 15 (2d8 + 6) bludgeoning damage.",
+		"Frightful Presence. Each creature of Azamreth's choice that is within 120 feet of Azamreth and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to Azamreth's Frightful Presence for the next 24 hours.",
+		"Breath Weapons (Recharge 5-6). Azamreth uses one of the following breath weapons.",
+		"Fire Breath. Azamreth exhales fire in an 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 45 (13d6) fire damage on a failed save, or half as much damage on a successful one.",
+		"Sleep Breath. Azamreth exhales sleep gas in a 60-foot cone. Each creature in that area must succeed on a DC 18 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it."
+	],
+	"lairActions": [
+		"A strong wind blows around Azamreth. Each creature within 60 feet of Azamreth must succeed on a DC 15 Strength saving throw or be pushed 15 feet away from Azamreth and knocked prone. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames; such as lanterns, have a 50 percent chance of being extinguished.",
+		"A cloud of sand swirls about in a 20-foot-radius sphere centered on a point Azamreth can see within 120 feet of it. The cloud spreads around corners. Each creature in it must succeed on a DC 15 Constitution saving throw or be blinded for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+	],
+	"regionalEffects": [
+		"Tracks appear in the sand within 6 miles of Azamreth's lair. The tracks lead to safe shelters and hidden water sources, while also leading away from areas that Azamreth prefers to remain undisturbed.",
+		"Images of Large or smaller monsters haunt the desert sands within 1 mile of Azamreth's lair. These illusions move and appear real, although they can do no harm. A creature that examines an image from a distance can tell it's an illusion with a successful DC 20 Intelligence (Investigation) check. Any physical interaction with an image reveals it to be an illusion, because objects pass through it.",
+		"Whenever a creature with an Intelligence of 3 or higher comes within 30 feet of a water source within 1 mile of Azamreth's lair, Azamreth becomes aware of the creature's presence and location."
+	],
+	"regionalEffectsFade": "If Azamreth dies, the tracks fade in 1d10 days, but the other effects fade immediately.",
+	"legendaryPoints": "3",
+	"legendaryActions": [
+		"Detect. Azamreth makes a Wisdom (Perception) check.",
+		"Tail Attack. Azamreth makes a tail attack.",
+		"Wing Attack (Costs 2 Actions). Azamreth beats its wings. Each creature within 10 ft. of Azamreth must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. Azamreth can then fly up to half its flying speed."
+	]
+}
