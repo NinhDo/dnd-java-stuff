@@ -247,4 +247,35 @@ public class monsterObject {
 		this.abilities = "STR 0 DEX 0 CON 0 INT 0 WIS 0 CHA 0";
 		this.challenge = 0;
 	}
+
+	public String toString() {
+		String output = "{" +
+				"\nname='" + name + '\'' +
+				",\nsize='" + size + '\'' +
+				",\ntype='" + type + '\'' +
+				",\nalignment='" + alignment + '\'' +
+				",\nac=" + ac +
+				",\nacDesc='" + acDesc + '\'' +
+				",\nhp=" + hp +
+				",\nhpDesc='" + hpDesc + '\'' +
+				",\nspeed='" + speed + '\'' +
+				",\nabilities='" + abilities + '\'' +
+				",\nsavingThrows='" + savingThrows + '\'' +
+				",\nskills='" + skills + '\'' +
+				",\ndamageResistances='" + damageResistances + '\'' +
+				",\ndamageImmunities='" + damageImmunities + '\'' +
+				",\nconditionImmunities='" + conditionImmunities + '\'' +
+				",\nsenses='" + senses + '\'' +
+				",\nlanguages='" + languages + '\'' +
+				",\nchallenge=" + challenge +
+				",\ntraits=" + traits +
+				",\nactions=" + actions +
+				",\nlairActions=" + lairActions +
+				",\nregionalEffects=" + regionalEffects +
+				",\nregionalEffectsFade=" + regionalEffectsFade +
+				",\nlegendaryPoints=" + legendaryPoints +
+				",\nlegendaryActions=" + legendaryActions +
+				'}';
+		return output;
+	}
 }
