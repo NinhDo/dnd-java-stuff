@@ -32,20 +32,44 @@ public class editorController {
 	public TextField wisdom;
 	public TextField charisma;
 	public GridPane otherInfo;
-	public VBox traits;
-	public TextField traitName;
-	public TextArea traitDesc;
+	public VBox traitsList;
 	public Button addTraitBtn;
 	public VBox multiattack;
 	public CheckBox multiattackBox;
 	public TextArea multiattackDescription;
 	public VBox actions;
-	public TextField actionName;
-	public TextArea actionDesc;
-	public VBox actionsParent;
-	public VBox traitsParent;
-	public VBox actionList;
-	public VBox attackAction;
+	public VBox traits;
+	public VBox actionsList;
+	public SplitPane leftColumn;
+	public SplitPane rightColumn;
+	public Button btnMeleeAction;
+	public Button btnRangedAction;
+	public Button btnOtherAction;
+	public Button btnCustomAction;
+	public Button btnMeleeActionLegendary;
+	public Button btnRangedActionLegendary;
+	public Button btnOtherActionLegendary;
+	public Button btnCustomActionLegendary;
+	public TextField savingThrows;
+	public TextField skills;
+	public TextField damageResistances;
+	public TextField damageImmunities;
+	public TextField conditionImmunities;
+	public TextField senses;
+	public TextField languages;
+	public TextField challenge;
+	public CheckBox legendaryActionsBox;
+	public VBox legendaryActionsList;
+	public CheckBox lairActionsBox;
+	public CheckBox regionalEffectsBox;
+	public VBox lairActionsList;
+	public Button lairActionBtn;
+	public VBox lairActions;
+	public GridPane regionalEffectsGrid;
+	public VBox legendaryActions;
+	public TextArea regionalEffectsDesc;
+	public TextArea regionalEffectsFadeDesc;
+	public VBox regionalEffects;
 
 	public void addTrait(ActionEvent ae) {
 		System.out.println("add trait");
@@ -53,4 +77,27 @@ public class editorController {
 	}
 
 
+	public void meleeEditor(ActionEvent ae) {
+	}
+
+	public void rangedEditor(ActionEvent ae) {
+	}
+
+	public void otherEditor(ActionEvent ae) {
+	}
+
+	public void customEditor(ActionEvent ae) {
+	}
+
+	public void toggleLegendaryActions(ActionEvent ae) {
+	}
+
+	public void toggleLairActions(ActionEvent ae) {
+	}
+
+	public void lairActionEditor(ActionEvent ae) {
+	}
+
+	public void toggleRegionalEffects(ActionEvent ae) {
+	}
 }
