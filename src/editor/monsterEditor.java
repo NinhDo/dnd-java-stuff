@@ -16,6 +16,7 @@ public class monsterEditor extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("editorInterface.fxml"));
 		primaryStage.setTitle("Monster Editor");
 		primaryStage.setScene(new Scene(root, 850, 600));
+		primaryStage.getScene().getStylesheets().add(getClass().getResource("editor.css").toExternalForm());
 		primaryStage.show();
 	}
 }

@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -48,78 +49,93 @@ public class actionController implements Initializable {
 	public Button addActionSaveAndCloseBtn;
 	public Button addActionCloseBtn;
 
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		actionType.getItems().addAll("Melee", "Ranged", "Thrown", "Area", "Cone", "Line");
 		actionSaveStat.getItems().addAll("Str", "Dex", "Con", "Int", "Wis", "Cha");
-		actionName.addEventFilter(KeyEvent.KEY_TYPED, validateText("[]"));
-		actionReach.addEventFilter(KeyEvent.KEY_TYPED, validateText("[]"));
-		actionRange.addEventFilter(KeyEvent.KEY_TYPED, validateText("[]"));
+		actionName.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionReach.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionRange.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
 		actionHit.addEventFilter(KeyEvent.KEY_TYPED, validateNumbers(2));
-		actionDmg.addEventFilter(KeyEvent.KEY_TYPED, validateText("[]"));
-		actionDmgType.addEventFilter(KeyEvent.KEY_TYPED, validateText("[]"));
-
+		actionDmg.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionDmgType.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionDmgCrit.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionAltDmg.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionAltDmgCrit.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionSecDmg.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionSecDmgType.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionSecDmgCrit.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionSaveDC.addEventFilter(KeyEvent.KEY_TYPED, validateNumbers(2));
+		actionSaveDmg.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionOnSave.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionSaveDmgType.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionEffects.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
+		actionRecharge.addEventFilter(KeyEvent.KEY_TYPED, validateTextIn());
 	}
 
 
-	public void toggleReach(ActionEvent actionEvent) {
+	public void toggleReach(ActionEvent ae) {
 	}
 
-	public void toggleRange(ActionEvent actionEvent) {
+	public void toggleRange(ActionEvent ae) {
 	}
 
-	public void toggleTarget(ActionEvent actionEvent) {
+	public void toggleTarget(ActionEvent ae) {
 	}
 
-	public void toggleAttack(ActionEvent actionEvent) {
+	public void toggleAttack(ActionEvent ae) {
 	}
 
-	public void toggleDmg(ActionEvent actionEvent) {
+	public void toggleDmg(ActionEvent ae) {
 	}
 
-	public void toggleAltDmg(ActionEvent actionEvent) {
+	public void toggleAltDmg(ActionEvent ae) {
 	}
 
-	public void toggleSecDmg(ActionEvent actionEvent) {
+	public void toggleSecDmg(ActionEvent ae) {
 	}
 
-	public void toggleSave(ActionEvent actionEvent) {
+	public void toggleSave(ActionEvent ae) {
 	}
 
-	public void toggleSaveDmg(ActionEvent actionEvent) {
+	public void toggleSaveDmg(ActionEvent ae) {
 	}
 
-	public void toggleEffects(ActionEvent actionEvent) {
+	public void toggleEffects(ActionEvent ae) {
 	}
 
-	public void toggleRecharge(ActionEvent actionEvent) {
+	public void toggleRecharge(ActionEvent ae) {
 	}
 
 
-	public EventHandler<KeyEvent> validateNumbers(final Integer maxLength) {
+	private EventHandler<KeyEvent> validateNumbers(final Integer maxLength) {
 		return ke -> {
-			TextField txtField = (TextField) ke.getSource();
-			if (txtField.getText().length() >= maxLength) ke.consume();
+			TextField txt = (TextField) ke.getSource();
+			if (txt.getText().length() >= maxLength && maxLength != 0 && txt.getSelectedText().length() != txt.getText().length())
+				ke.consume();
 			if (ke.getCharacter().matches("[0-9]")) ke.consume();
 		};
 	}
 
-	public EventHandler<KeyEvent> validateText(final String regex) {
+	private EventHandler<KeyEvent> validateTextIn() {
 		return ke -> {
-			TextField txtField = (TextField) ke.getSource();
-			if (!txtField.getText().matches(regex)) {
-				ke.consume();
-			}
+			if (!ke.getCharacter().matches("[A-Za-z0-9.,\\(\\) +-]")) ke.consume();
 		};
 	}
 
-	public void addActionSave(ActionEvent actionEvent) {
+	public void addActionSave(ActionEvent ae) {
+		Stage stage = (Stage) addActionCloseBtn.getScene().getWindow();
+		Stage owner = (Stage) stage.getOwner();
+
 	}
 
-	public void addActionSaveAndClose(ActionEvent actionEvent) {
+	public void addActionSaveAndClose(ActionEvent ae) {
+		addActionSave(ae);
+		addActionClose(ae);
 	}
 
-	public void addActionClose(ActionEvent actionEvent) {
+	public void addActionClose(ActionEvent ae) {
+		Stage stage = (Stage) addActionCloseBtn.getScene().getWindow();
+		stage.close();
 	}
 }
