@@ -119,7 +119,7 @@ public class actionController implements Initializable {
 
 	private EventHandler<KeyEvent> validateTextIn() {
 		return ke -> {
-			if (!ke.getCharacter().matches("[A-Za-z0-9.,\\(\\) +-]")) ke.consume();
+			if (!ke.getCharacter().matches("[A-Za-z0-9.,\\(\\)\\+\\- ]")) ke.consume();
 		};
 	}
 
