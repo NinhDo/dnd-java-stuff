@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" minHeight="300.0" minWidth="600.0" prefHeight="600.0" prefWidth="1000.0"
+			xmlns="http://javafx.com/javafx/8" fx:controller="program.mainController">
+	<center>
+		<ScrollPane hbarPolicy="NEVER" BorderPane.alignment="CENTER">
+			<content>
+				<SplitPane dividerPositions="0.5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+						   prefHeight="550.0" prefWidth="800.0">
+					<items>
+						<WebView fx:id="leftColumn" maxWidth="600.0" minHeight="-1.0" minWidth="-1.0" prefHeight="500.0"
+								 prefWidth="400.0"/>
+						<WebView fx:id="rightColumn" maxWidth="600.0" minHeight="-1.0" minWidth="-1.0"
+								 prefHeight="500.0" prefWidth="400.0"/>
+					</items>
+					<padding>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+					</padding>
+				</SplitPane>
+			</content>
+		</ScrollPane>
+	</center>
+	<right>
+		<BorderPane prefHeight="200.0" prefWidth="200.0">
+			<center>
+				<ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="200.0" BorderPane.alignment="CENTER">
+					<content>
+						<ListView fx:id="monsterList"/>
+					</content>
+				</ScrollPane>
+			</center>
+			<bottom>
+				<TextField fx:id="searchBar" promptText="Search..." BorderPane.alignment="CENTER">
+					<BorderPane.margin>
+						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+					</BorderPane.margin>
+				</TextField>
+			</bottom>
+		</BorderPane>
+	</right>
+	<bottom>
+		<GridPane hgap="5.0" vgap="5.0" BorderPane.alignment="CENTER">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+			</rowConstraints>
+			<children>
+				<Button fx:id="newBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#newMonster"
+						text="New Monster"/>
+				<Button fx:id="editBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+						onAction="#editMonster" text="Edit Monster" GridPane.columnIndex="1"/>
+				<Button fx:id="jsonBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#saveJson"
+						text="Save and Export to json" GridPane.columnIndex="2"/>
+				<Button fx:id="roll20Btn" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+						onAction="#saveRoll20" text="Save and Export to Roll20" GridPane.columnIndex="3"/>
+				<Button fx:id="importBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
+						onAction="#importMonsters" text="Import monsters" GridPane.columnIndex="4"/>
+			</children>
+			<BorderPane.margin>
+				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+			</BorderPane.margin>
+			<padding>
+				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+			</padding>
+		</GridPane>
+	</bottom>
+</BorderPane>

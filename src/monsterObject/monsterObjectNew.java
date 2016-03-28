@@ -6,7 +6,6 @@
  */
 package monsterObject;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -14,18 +13,21 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({"name", "size", "type", "alignment", "AC", "HP", "speed", "abilities", "savingThrows", "skills", "damageResistances",
-		"damageImmunities", "conditionImmunities", "senses", "languages", "challenge", "traits", "actions",
+@JsonPropertyOrder({"name", "size", "type", "alignment", "AC", "HP", "speed", "strength", "dexterity",
+		"constitution", "intelligence", "wisdom", "charisma", "savingThrows", "skills", "damageResistances",
+		"damageImmunities", "conditionImmunities", "senses", "languages", "challenge", "traits", "spells", "actions",
 		"lairActions", "regionalEffects", "regionalEffectsFade", "legendaryPoints", "legendaryActions"})
-public class monsterObject {
+public class monsterObjectNew {
 
-	private String name, size, type, alignment, AC, HP, speed, abilities, savingThrows, skills, damageResistances, damageVulnerabilities,
-			damageImmunities, conditionImmunities, senses, languages, challenge, regionalEffectsFade,
-			legendaryPoints, spells;
-	private List<String> traits, actions, lairActions, regionalEffects, legendaryActions;
+	private String name, size, type, alignment, AC, HP, speed, strength, dexterity, constitution,
+			intelligence, wisdom, charisma, savingThrows, skills, damageResistances, damageVulnerabilities,
+			damageImmunities, conditionImmunities, senses, languages, challenge, regionalEffectsFade, legendaryPoints,
+			spells;
+	private List<monsterObjectSubObject> traits, actions, legendaryActions;
+	private List<String> lairActions, regionalEffects;
 
 	// Constructor
-	public monsterObject() {
+	public monsterObjectNew() {
 	}
 
 	// GETTERS AND SETTERS
@@ -99,14 +101,64 @@ public class monsterObject {
 		this.speed = speed;
 	}
 
-	@JsonProperty("abilities")
-	public String getAbilities() {
-		return abilities;
+	@JsonProperty("strength")
+	public String getStrength() {
+		return strength;
 	}
 
-	@JsonProperty("abilities")
-	public void setAbilities(String abilities) {
-		this.abilities = abilities;
+	@JsonProperty("strength")
+	public void setStrength(String strength) {
+		this.strength = strength;
+	}
+
+	@JsonProperty("dexterity")
+	public String getDexterity() {
+		return dexterity;
+	}
+
+	@JsonProperty("dexterity")
+	public void setDexterity(String dexterity) {
+		this.dexterity = dexterity;
+	}
+
+	@JsonProperty("constitution")
+	public String getConstitution() {
+		return constitution;
+	}
+
+	@JsonProperty("constitution")
+	public void setConstitution(String constitution) {
+		this.constitution = constitution;
+	}
+
+	@JsonProperty("intelligence")
+	public String getIntelligence() {
+		return intelligence;
+	}
+
+	@JsonProperty("intelligence")
+	public void setIntelligence(String intelligence) {
+		this.intelligence = intelligence;
+	}
+
+	@JsonProperty("wisdom")
+	public String getWisdom() {
+		return wisdom;
+	}
+
+	@JsonProperty("wisdom")
+	public void setWisdom(String wisdom) {
+		this.wisdom = wisdom;
+	}
+
+	@JsonProperty("charisma")
+	public String getCharisma() {
+		return charisma;
+	}
+
+	@JsonProperty("charisma")
+	public void setCharisma(String charisma) {
+		this.charisma = charisma;
 	}
 
 	@JsonProperty("savingThrows")
@@ -200,22 +252,22 @@ public class monsterObject {
 	}
 
 	@JsonProperty("traits")
-	public List<String> getTraits() {
+	public List<monsterObjectSubObject> getTraits() {
 		return traits;
 	}
 
 	@JsonProperty("traits")
-	public void setTraits(List<String> traits) {
+	public void setTraits(List<monsterObjectSubObject> traits) {
 		this.traits = traits;
 	}
 
 	@JsonProperty("actions")
-	public List<String> getActions() {
+	public List<monsterObjectSubObject> getActions() {
 		return actions;
 	}
 
 	@JsonProperty("actions")
-	public void setActions(List<String> actions) {
+	public void setActions(List<monsterObjectSubObject> actions) {
 		this.actions = actions;
 	}
 
@@ -260,28 +312,28 @@ public class monsterObject {
 	}
 
 	@JsonProperty("legendaryActions")
-	public List<String> getLegendaryActions() {
+	public List<monsterObjectSubObject> getLegendaryActions() {
 		return legendaryActions;
 	}
 
 	@JsonProperty("legendaryActions")
-	public void setLegendaryActions(List<String> legendaryActions) {
+	public void setLegendaryActions(List<monsterObjectSubObject> legendaryActions) {
 		this.legendaryActions = legendaryActions;
 	}
 
-	@JsonIgnore
+	@JsonProperty("spells")
 	public String getSpells() {
 		return spells;
 	}
 
-	@JsonIgnore
+	@JsonProperty("spells")
 	public void setSpells(String spells) {
 		this.spells = spells;
 	}
 
 	@Override
 	public String toString() {
-		return "monsterObject{" +
+		return "monsterObjectNew{" +
 				"name='" + name + '\'' +
 				", size='" + size + '\'' +
 				", type='" + type + '\'' +
@@ -289,7 +341,12 @@ public class monsterObject {
 				", AC='" + AC + '\'' +
 				", HP='" + HP + '\'' +
 				", speed='" + speed + '\'' +
-				", abilities='" + abilities + '\'' +
+				", strength='" + strength + '\'' +
+				", dexterity='" + dexterity + '\'' +
+				", constitution='" + constitution + '\'' +
+				", intelligence='" + intelligence + '\'' +
+				", wisdom='" + wisdom + '\'' +
+				", charisma='" + charisma + '\'' +
 				", savingThrows='" + savingThrows + '\'' +
 				", skills='" + skills + '\'' +
 				", damageResistances='" + damageResistances + '\'' +
@@ -302,6 +359,7 @@ public class monsterObject {
 				", regionalEffectsFade='" + regionalEffectsFade + '\'' +
 				", legendaryPoints='" + legendaryPoints + '\'' +
 				", traits=" + traits +
+				", spells='" + spells + '\'' +
 				", actions=" + actions +
 				", lairActions=" + lairActions +
 				", regionalEffects=" + regionalEffects +

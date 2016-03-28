@@ -1,24 +1,34 @@
 package program;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import monsterObject.monsterObject;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 
-public class mainProgram {
+public class mainProgram extends Application {
 
 	public static void main(String[] args) {
-		// reads monster.json in root and makes a new monster.json in /out/
-		// after creating monsterObjects in a list
-		run();
+		launch(args);
 	}
+
+	private static void writeToFile(String cleanedList) {
+		String filename = "monsters.json";
+		System.out.println("Writing " + filename + "...");
+		try (FileWriter file = new FileWriter(new File("./out/" + filename))) {
+			file.write(cleanedList);
+			System.out.println("Writing successfully.");
+			file.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+/*
 
 	private static void run() {
 		ObjectMapper mapper = new ObjectMapper();
@@ -39,7 +49,8 @@ public class mainProgram {
 		String cleanedList = cleanList(moList);
 		System.out.println(cleanedList);
 
-		writeToFile(cleanedList);
+		// Writes to monster.json
+		//writeToFile(cleanedList);
 	}
 
 	private static String cleanList(List<String> moList) {
@@ -57,16 +68,19 @@ public class mainProgram {
 		cleanedList = cleanedList.substring(0, cleanedList.length() - 2) + "\n]";
 		return cleanedList;
 	}
+*/
 
-	private static void writeToFile(String cleanedList) {
-		String filename = "monsters.json";
-		System.out.println("Writing " + filename + "...");
-		try (FileWriter file = new FileWriter(new File("./out/" + filename))) {
-			file.write(cleanedList);
-			System.out.println("Writing successfully.");
-			file.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// reads monster.json in root and makes a new monster.json in /out/
+		// after creating monsterObjects in a list
+		//run();
+		// Creates window and displays it
+		Parent root = FXMLLoader.load(getClass().getResource("mainInterface.fxml"));
+		primaryStage.setTitle("Monsters");
+		primaryStage.setScene(new Scene(root, 850, 600));
+		primaryStage.setMinHeight(300);
+		primaryStage.setMinWidth(600);
+		primaryStage.show();
 	}
 }
